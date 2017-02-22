@@ -1,0 +1,63 @@
+{
+  "name": "currency-exchange",
+  "version": "1.0.0",
+  "description": "A proof-of-concept digital currency exchange app",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel-node ./node_modules/webpack/bin/webpack.js",
+    "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "lint": "eslint src",
+    "start": "babel-node public/index.js",
+    "test": "jest",
+    "watch": "babel-node ./node_modules/webpack/bin/webpack.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/grxy/currency-exchange.git"
+  },
+  "keywords": [
+    "currency",
+    "digital",
+    "exchange"
+  ],
+  "author": "andrew@grexa.me",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/grxy/currency-exchange/issues"
+  },
+  "homepage": "https://github.com/grxy/currency-exchange#readme",
+  "dependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^19.0.0",
+    "babel-loader": "^6.3.2",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-latest": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "coveralls": "^2.11.16",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.16.0",
+    "eslint-plugin-react": "^6.10.0",
+    "express": "^4.14.1",
+    "jest-cli": "^19.0.0",
+    "keymirror": "^0.1.1",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "lodash": "^4.17.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.6.0",
+    "redux-actions": "^1.2.1",
+    "redux-devtools-extension": "^2.13.0",
+    "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  }
+}
