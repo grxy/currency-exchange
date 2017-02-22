@@ -1,7 +1,4 @@
-import BittrexArchiveService from './BittrexArchiveService';
-import BTCEArchiveService from './BTCEArchiveService';
-import PoloniexArchiveService from './PoloniexArchiveService';
-
+import * as services from './services';
 import db from 'services/db';
 
 class ArchiveService {
@@ -12,11 +9,9 @@ class ArchiveService {
 
                 db[timestamp] = {};
 
-                await Promise.all([
-                    BittrexArchiveService.run(timestamp),
-                    BTCEArchiveService.run(timestamp),
-                    PoloniexArchiveService.run(timestamp)
-                ]);
+                const promises = Object.values(services).map((service) => service.run(timestamp));
+
+                await Promise.all(promises);
             } catch (err) {
                 // eslint-disable-next-line no-console
                 console.log('An error occurred in the ArchiveService', err);

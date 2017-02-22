@@ -5,14 +5,14 @@ import db from 'services/db';
 const ApiRouter = Router();
 
 const getByExchange = (exchange) => {
-    const output = {}
+    const output = {};
 
     for (const timestamp in db) {
-        output[timestamp] = db[timestamp][exchange];
+        output[timestamp] = db[timestamp][exchange.toLowerCase()];
     }
 
     return output;
-}
+};
 
 ApiRouter.get(/^\/(exchange)?$/, (req, res) => {
     res
