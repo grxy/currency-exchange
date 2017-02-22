@@ -10,9 +10,6 @@ const config = {
         port: 8888
     },
     devtool: 'source-map',
-    entry: {
-        'private/server': ['babel-polyfill', 'services/server/index']
-    },
     module: {
         rules: [
             {
@@ -42,10 +39,25 @@ const config = {
             path.resolve('./src')
         ]
     },
-    target: 'node',
     watchOptions: {
         poll: true
     }
 };
 
-export default config;
+const configs = [
+    {
+        ...config,
+        entry: {
+            'private/server': ['babel-polyfill', 'services/server/index'],
+        },
+        target: 'node'
+    },
+    {
+        ...config,
+        entry: {
+            'public/app': 'index'
+        }
+    }
+];
+
+export default configs;
