@@ -11,7 +11,7 @@ const config = {
     },
     devtool: 'source-map',
     entry: {
-        index: 'services/server/index'
+        index: ['babel-polyfill', 'services/server/index']
     },
     module: {
         rules: [

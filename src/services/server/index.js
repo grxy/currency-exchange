@@ -1,19 +1,13 @@
 import express from 'express';
-import React from 'react';
-import { renderToStaticMarkup } from 'react-dom/server';
 
-import CurrencyExchange from 'index';
+import api from './api';
+import ArchiveService from 'services/ArchiveService';
+
+ArchiveService.run();
 
 const app = express();
 
-app.use((req, res) => {
-    const markup = renderToStaticMarkup(<CurrencyExchange />);
-
-    res
-        .status(200)
-        .set('Content-Type', 'text/html')
-        .send(`<!DOCTYPE html>${markup}`);
-});
+app.use('/api', api);
 
 const PORT = 9999;
 

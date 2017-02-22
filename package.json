@@ -7,7 +7,7 @@
     "build": "babel-node ./node_modules/webpack/bin/webpack.js",
     "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "lint": "eslint src",
-    "start": "babel-node public/index.js",
+    "start": "nodemon public/index.js",
     "test": "jest",
     "watch": "babel-node ./node_modules/webpack/bin/webpack.js --watch"
   },
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/grxy/currency-exchange#readme",
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
     "babel-eslint": "^7.1.1",
