@@ -19,6 +19,7 @@
     "plugins": [
         "react"
     ],
+    "root": true,
     "rules": {
         "arrow-body-style": [
             "error",
