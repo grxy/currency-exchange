@@ -1,6 +1,3 @@
-const db = {
-    bittrex: [],
-    poloniex: []
-};
+const db = {};
 
 export default db;

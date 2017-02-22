@@ -11,7 +11,7 @@ const config = {
     },
     devtool: 'source-map',
     entry: {
-        index: ['babel-polyfill', 'services/server/index']
+        'private/server': ['babel-polyfill', 'services/server/index']
     },
     module: {
         rules: [
@@ -32,7 +32,7 @@ const config = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve('./public'),
+        path: './',
         sourceMapFilename: '[file].map'
     },
     resolve: {

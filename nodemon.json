@@ -1,0 +1,8 @@
+{
+    "delay": "500",
+    "legacyWatch": true,
+    "watch": [
+        "public",
+        "private"
+    ]
+}

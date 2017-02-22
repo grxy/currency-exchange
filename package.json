@@ -7,7 +7,7 @@
     "build": "babel-node ./node_modules/webpack/bin/webpack.js",
     "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "lint": "eslint src",
-    "start": "nodemon public/index.js",
+    "start": "nodemon private/server.js",
     "test": "jest",
     "watch": "babel-node ./node_modules/webpack/bin/webpack.js --watch"
   },
@@ -57,6 +57,7 @@
     "redux-devtools-extension": "^2.13.0",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.2.0",
+    "source-map-support": "^0.4.11",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
