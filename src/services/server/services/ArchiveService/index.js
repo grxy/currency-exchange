@@ -13,7 +13,6 @@ class ArchiveService {
 
                 await Promise.all(promises);
             } catch (err) {
-                // eslint-disable-next-line no-console
                 console.log('An error occurred in the ArchiveService', err);
             }
         }, 1000);

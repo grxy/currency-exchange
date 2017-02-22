@@ -15,7 +15,6 @@ class BTCEArchiveService {
             'BTC-LTC': ltc_usd.last / btc
         };
 
-        // eslint-disable-next-line no-console
         console.log('BTC-E ARCHIVE', JSON.stringify(record));
 
         db[timestamp].btce = record;

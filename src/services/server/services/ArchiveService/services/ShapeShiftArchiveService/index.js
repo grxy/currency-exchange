@@ -27,7 +27,6 @@ class ShapeShiftArchiveService {
             'BTC-LTC': ltc
         };
 
-        // eslint-disable-next-line no-console
         console.log('SHAPESHIFT ARCHIVE', JSON.stringify(record));
 
         db[timestamp].shapeshift = record;

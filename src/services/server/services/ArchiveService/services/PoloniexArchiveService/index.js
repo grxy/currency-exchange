@@ -17,7 +17,6 @@ class PoloniexArchiveService {
             record[key] = Number(record[key].last);
         }
 
-        // eslint-disable-next-line no-console
         console.log('POLONIEX ARCHIVE', JSON.stringify(record));
 
         db[timestamp].poloniex = record;

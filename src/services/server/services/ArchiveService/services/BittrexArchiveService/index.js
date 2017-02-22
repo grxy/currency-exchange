@@ -14,7 +14,6 @@ class BittrexArchiveService {
             return output;
         }, {});
 
-        // eslint-disable-next-line no-console
         console.log('BITTREX ARCHIVE', JSON.stringify(record));
 
         db[timestamp].bittrex = record;
