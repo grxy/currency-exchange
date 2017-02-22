@@ -1,4 +1,5 @@
 import BittrexArchiveService from './BittrexArchiveService';
+import BTCEArchiveService from './BTCEArchiveService';
 import PoloniexArchiveService from './PoloniexArchiveService';
 
 import db from 'services/db';
@@ -13,6 +14,7 @@ class ArchiveService {
 
                 await Promise.all([
                     BittrexArchiveService.run(timestamp),
+                    BTCEArchiveService.run(timestamp),
                     PoloniexArchiveService.run(timestamp)
                 ]);
             } catch (err) {

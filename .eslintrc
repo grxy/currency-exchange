@@ -40,7 +40,10 @@
             "1tbs"
         ],
         "camelcase": [
-            "error"
+            "error",
+            {
+                "properties": "never"
+            }
         ],
         "comma-dangle": [
             "error",

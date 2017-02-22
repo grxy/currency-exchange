@@ -7,7 +7,11 @@ class PoloniexArchiveService {
         const { data } = await get('https://poloniex.com/public?command=returnTicker');
         const { BTC_DASH, BTC_ETH, BTC_LTC } = data;
 
-        const record = { BTC_DASH, BTC_ETH, BTC_LTC };
+        const record = {
+            'BTC-DASH': BTC_DASH,
+            'BTC-ETH': BTC_ETH,
+            'BTC-LTC': BTC_LTC
+        };
 
         for (const key in record) {
             record[key] = Number(record[key].last);
