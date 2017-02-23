@@ -1,22 +1,20 @@
 import { get } from 'axios';
 
-import db from 'services/db';
+import ArchiveService from 'services/server/services/ArchiveService';
 
 class BittrexArchiveService {
-    static async run(timestamp) {
+    static async run(obj) {
         const { data } = await get('https://bittrex.com/api/v1.1/public/getmarketsummaries');
 
-        const record = data.result.reduce((output, item) => {
-            if (item.MarketName.match(/^BTC-(DASH|ETH|LTC)$/)) {
-                output[item.MarketName] = item.Last;
+        const record = {};
+
+        data.result.forEach(({ Last: value, MarketName: ticker }) => {
+            if (ticker.match(/^BTC-(DASH|ETH|LTC)$/)) {
+                record[ticker] = value;
             }
+        });
 
-            return output;
-        }, {});
-
-        console.log('BITTREX ARCHIVE', JSON.stringify(record));
-
-        db[timestamp].bittrex = record;
+        ArchiveService.save(obj, 'Bittrex', record);
     }
 }
 

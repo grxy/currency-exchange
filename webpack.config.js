@@ -15,15 +15,12 @@ const config = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: 'babel-loader',
-                query: {
-                    cacheDirectory: true
-                }
+                loader: 'babel-loader?cacheDirectory'
             },
             {
                 test: /\.less$/,
                 exclude: /node_modules/,
-                loader: 'style!css!less'
+                loader: 'style-loader!css-loader!less-loader'
             }
         ]
     },

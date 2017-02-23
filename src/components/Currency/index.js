@@ -1,53 +1,56 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+
+import BestExchange from './components/BestExchange';
+import CurrencyTitle from './components/CurrencyTitle';
+import ExchangePrice from 'components/ExchangePrice';
 
 const { object, string } = PropTypes;
 
 class Currency extends Component {
     static propTypes = {
-        data: object,
-        currency: string
+        data: object.isRequired,
+        ticker: string.isRequired
     }
 
-    getData = () => {
-        const { data } = this.props;
-        const output = [];
+    getExchanges = () => {
+        const exchanges = [];
 
-        for (const timestamp in data) {
-            const value = {
-                data: [],
-                timestamp
-            };
-
-            for (const exchange in data[timestamp]) {
-                value.data.push({
-                    exchange,
-                    value: data[timestamp][exchange][this.props.currency]
-                });
-            }
-
-            output.push(value);
+        for (const exchange in this.props.data) {
+            exchanges.push({
+                exchange,
+                price: this.props.data[exchange],
+                ticker: this.props.ticker
+            });
         }
 
-        return output;
+        return exchanges.sort((a, b) => {
+            if (a.exchange < b.exchange) {
+                return -1;
+            }
+
+            if (a.exchange > b.exchange) {
+                return 1;
+            }
+
+            return 0;
+        });
     }
+
+    getValue = (num) => Number(parseFloat(num).toFixed(6))
 
     render = () => (
         <div className="currency">
-            <h2>{this.props.currency}</h2>
+            <CurrencyTitle ticker={this.props.ticker} />
             {this.renderExchanges()}
+            <BestExchange exchanges={this.getExchanges()} />
         </div>
     )
 
-    renderExchange = (currency, i) => (
-        <h3 key={i}>{currency.exchange} - {currency.value}</h3>
+    renderExchange = (exchange, index) => (
+        <ExchangePrice key={index} {...exchange} />
     )
 
-    renderExchanges = () => this.getData()[0].data.map(this.renderExchange)
+    renderExchanges = () => this.getExchanges().map(this.renderExchange)
 }
 
-const mapStateToProps = ({ data }) => ({ data });
-
-export default connect(
-    mapStateToProps
-)(Currency);
+export default Currency;

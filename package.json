@@ -4,12 +4,12 @@
   "description": "A proof-of-concept digital currency exchange app",
   "main": "index.js",
   "scripts": {
-    "build": "babel-node ./node_modules/webpack/bin/webpack.js",
-    "dev": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "build": "./node_modules/babel-cli/bin/babel-node.js ./node_modules/webpack/bin/webpack.js",
+    "dev": "./node_modules/babel-cli/bin/babel-node.js ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "lint": "eslint src",
     "start": "nodemon private/server.js",
     "test": "jest",
-    "watch": "babel-node ./node_modules/webpack/bin/webpack.js --watch"
+    "watch": "./node_modules/babel-cli/bin/babel-node.js ./node_modules/webpack/bin/webpack.js --watch"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,7 @@
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "lodash": "^4.17.4",
+    "moment": "^2.17.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-helmet": "^4.0.0",

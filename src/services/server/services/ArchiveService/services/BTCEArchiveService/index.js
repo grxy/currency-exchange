@@ -1,9 +1,9 @@
 import { get } from 'axios';
 
-import db from 'services/db';
+import ArchiveService from 'services/server/services/ArchiveService';
 
 class BTCEArchiveService {
-    static async run(timestamp) {
+    static async run(obj) {
         const { data } = await get('https://btc-e.com/api/3/ticker/btc_usd-ltc_usd-dsh_usd-eth_usd');
 
         const { btc_usd, ltc_usd, dsh_usd, eth_usd } = data;
@@ -15,9 +15,7 @@ class BTCEArchiveService {
             'BTC-LTC': ltc_usd.last / btc
         };
 
-        console.log('BTC-E ARCHIVE', JSON.stringify(record));
-
-        db[timestamp].btce = record;
+        ArchiveService.save(obj, 'BTC-e', record);
     }
 }
 

@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Helmet from 'react-helmet';
 
-import Currency from 'components/Currency';
+import BitcoinInput from 'components/BitcoinInput';
+import Currencies from 'components/Currencies';
+import TimeInput from 'components/TimeInput';
 
 const { node } = PropTypes;
 
@@ -22,11 +24,9 @@ class App extends Component {
                 ]}
                 titleTemplate="%s | Currency Exchange"
             />
-            <h1>Currency Exchange</h1>
-            {this.props.children}
-            <Currency currency="BTC-DASH" />
-            <Currency currency="BTC-ETH" />
-            <Currency currency="BTC-LTC" />
+            <TimeInput />
+            <BitcoinInput />
+            <Currencies />
         </div>
     )
 }

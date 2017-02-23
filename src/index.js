@@ -6,6 +6,8 @@ import { Router, match } from 'react-router';
 import routes from 'services/routes';
 import store, { history } from 'services/redux/store';
 
+import './index.less';
+
 match({ history, routes }, (error, redirectLocation, renderProps) => {
     render(
         <Provider store={store}>

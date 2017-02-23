@@ -1,23 +1,23 @@
 import { get } from 'axios';
 
-import db from 'services/db';
+import ArchiveService from 'services/server/services/ArchiveService';
 
 class ShapeShiftArchiveService {
-    static async run(timestamp) {
+    static async run(obj) {
         let dash, eth, ltc;
 
         await Promise.all([
             get('https://shapeshift.io/rate/dash_btc')
                 .then(({ data }) => {
-                    dash = data.rate;
+                    dash = Number(data.rate);
                 }),
             get('https://shapeshift.io/rate/eth_btc')
                 .then(({ data }) => {
-                    eth = data.rate;
+                    eth = Number(data.rate);
                 }),
             get('https://shapeshift.io/rate/ltc_btc')
                 .then(({ data }) => {
-                    ltc = data.rate;
+                    ltc = Number(data.rate);
                 })
         ]);
 
@@ -27,9 +27,7 @@ class ShapeShiftArchiveService {
             'BTC-LTC': ltc
         };
 
-        console.log('SHAPESHIFT ARCHIVE', JSON.stringify(record));
-
-        db[timestamp].shapeshift = record;
+        ArchiveService.save(obj, 'ShapeShift', record);
     }
 }
 
