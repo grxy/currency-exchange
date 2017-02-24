@@ -254,6 +254,12 @@
                 "avoidEscape": true
             }
         ],
+        "react/display-name": [
+            "error",
+            {
+                "ignoreTranspilerName": true
+            }
+        ],
         "react/jsx-closing-bracket-location": [
             "error",
             "tag-aligned"

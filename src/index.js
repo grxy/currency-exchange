@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, match } from 'react-router';
+import { browserHistory as history, match, Router } from 'react-router';
 
 import routes from 'services/routes';
-import store, { history } from 'services/redux/store';
+import store from 'services/redux/store';
 
 import './index.less';
 
