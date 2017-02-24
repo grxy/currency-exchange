@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+import CurrencySymbol from '../CurrencySymbol';
+
 const { number, string } = PropTypes;
 
 class ExchangePrice extends Component {
@@ -13,10 +15,10 @@ class ExchangePrice extends Component {
 
     getCount = () => Number(parseFloat(this.props.count / this.props.price).toFixed(4))
 
-    getSymbol = () => this.props.ticker.replace('BTC-', '')
-
     render = () => (
-        <h3 className="exchange-price">{this.getCount()} {this.getSymbol()} @ {this.props.exchange}</h3>
+        <div className="exchange-price">
+            Trade at {this.props.exchange} for {this.getCount()} <CurrencySymbol ticker={this.props.ticker} />
+        </div>
     )
 }
 

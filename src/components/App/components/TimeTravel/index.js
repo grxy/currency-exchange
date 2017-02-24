@@ -6,7 +6,7 @@ import { updateIndex } from 'services/redux/actions';
 
 const { func, number } = PropTypes;
 
-class TimeInput extends Component {
+class TimeTravel extends Component {
     static propTypes = {
         index: number.isRequired,
         max: number.isRequired,
@@ -21,10 +21,9 @@ class TimeInput extends Component {
     }
 
     render = () => (
-        <div className="time-input">
+        <div className="time-travel">
             <h2>Slide for Time Travel ({moment(this.props.timestamp).format()})</h2>
             <input
-                className="time-input"
                 max={this.props.max}
                 min="0"
                 onChange={this.handleChange}
@@ -48,4 +47,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(TimeInput);
+)(TimeTravel);

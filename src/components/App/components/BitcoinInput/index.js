@@ -18,7 +18,7 @@ class BitcoinInput extends Component {
     }
 
     render = () => (
-        <h1>
+        <h1 className="bitcoin-input">
             <span>I have</span>
             <input onChange={this.handleChange} type="number" value={this.props.count} />
             <span>BTC</span>

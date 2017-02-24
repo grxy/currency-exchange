@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import Currency from 'components/Currency';
+import Currency from './components/Currency';
 
 const { array, object } = PropTypes;
 

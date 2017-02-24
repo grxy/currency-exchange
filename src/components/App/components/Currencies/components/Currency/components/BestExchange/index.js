@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 
-import ExchangePrice from 'components/ExchangePrice';
+import CurrencySymbol from '../CurrencySymbol';
+import ExchangePrice from '../ExchangePrice';
 
-const { array } = PropTypes;
+const { array, string } = PropTypes;
 
 class BestExchange extends Component {
     static propTypes = {
-        exchanges: array.isRequired
+        exchanges: array.isRequired,
+        ticker: string.isRequired
     }
 
     getBestExchange = () => {
@@ -25,7 +27,7 @@ class BestExchange extends Component {
 
     render = () => (
         <div className="best-exchange">
-            <h2>Best Exchange</h2>
+            <h2>Best Exchange for <CurrencySymbol ticker={this.props.ticker} /></h2>
             <ExchangePrice {...this.getBestExchange()} />
         </div>
     )

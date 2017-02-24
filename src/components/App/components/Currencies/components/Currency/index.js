@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 
 import BestExchange from './components/BestExchange';
-import CurrencyTitle from './components/CurrencyTitle';
-import ExchangePrice from 'components/ExchangePrice';
+import CurrencySymbol from './components/CurrencySymbol';
+import ExchangePrice from './components/ExchangePrice';
 
 const { object, string } = PropTypes;
 
@@ -40,9 +40,9 @@ class Currency extends Component {
 
     render = () => (
         <div className="currency">
-            <CurrencyTitle ticker={this.props.ticker} />
+            <CurrencySymbol ticker={this.props.ticker} />
             {this.renderExchanges()}
-            <BestExchange exchanges={this.getExchanges()} />
+            <BestExchange exchanges={this.getExchanges()} ticker={this.props.ticker} />
         </div>
     )
 
