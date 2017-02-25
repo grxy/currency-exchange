@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/babel-cli/bin/babel-node.js ./node_modules/webpack/bin/webpack.js",
+    "coverage": "coveralls < coverage/lcov.info",
     "lint": "eslint src",
     "start": "npm run build && nodemon private/server.js",
     "test": "jest -c jest.json",
