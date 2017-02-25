@@ -1,6 +1,8 @@
 import * as services from './services';
 import db from 'services/db';
 
+import { ARCHIVE_INTERVAL, ARCHIVE_TIMEOUT } from 'services/constants';
+
 class ArchiveService {
     static start = () => {
         const i = setInterval(async () => {
@@ -18,9 +20,9 @@ class ArchiveService {
             } catch (err) {
                 console.log('An error occurred in the ArchiveService', err);
             }
-        }, 1000);
+        }, ARCHIVE_INTERVAL);
 
-        setTimeout(() => clearInterval(i), 60000);
+        setTimeout(() => clearInterval(i), ARCHIVE_TIMEOUT);
     }
 
     static save = (obj, exchange, record) => {
