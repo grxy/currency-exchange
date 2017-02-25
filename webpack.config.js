@@ -24,6 +24,10 @@ const config = {
             }
         ]
     },
+    node: {
+        fs: 'empty',
+        net: 'empty'
+    },
     output: {
         filename: '[name].js',
         path: './',
@@ -52,7 +56,7 @@ const configs = [
     {
         ...config,
         entry: {
-            'public/app': 'index'
+            'public/app': ['babel-polyfill', 'index']
         }
     }
 ];

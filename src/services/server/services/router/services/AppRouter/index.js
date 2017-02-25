@@ -5,7 +5,7 @@ import { renderToStaticMarkup, renderToString } from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { RouterContext, match } from 'react-router';
 
-import Html from 'components/html';
+import Html from 'components/Html';
 import routes from 'services/routes';
 import { createStore } from 'services/redux/store';
 

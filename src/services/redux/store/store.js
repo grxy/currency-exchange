@@ -1,11 +1,10 @@
-import { browserHistory } from 'react-router';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import promise from 'redux-promise';
 import thunk from 'redux-thunk';
 
-import { __CLIENT__, __SERVER__ } from 'services/constants';
+import { __CLIENT__ } from 'services/constants';
 import reducers from 'services/redux/reducers';
 
 const middlewares = [

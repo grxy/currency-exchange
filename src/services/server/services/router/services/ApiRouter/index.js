@@ -14,6 +14,12 @@ const getByExchange = (exchange) => {
     return output;
 };
 
+ApiRouter.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+
+    next();
+});
+
 ApiRouter.get(/^\/(exchange)?$/, (req, res) => {
     res
         .set('Content-Type', 'application/json')

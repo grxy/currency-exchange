@@ -18,7 +18,7 @@ const count = handleActions({
 }, 20);
 
 const data = handleActions({
-    UPDATE_DATA: (state) => state
+    UPDATE_DATA: (state, { payload }) => payload
 }, db);
 
 const index = handleActions({
