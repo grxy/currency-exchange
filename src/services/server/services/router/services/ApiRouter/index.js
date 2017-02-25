@@ -8,7 +8,7 @@ const getByExchange = (exchange) => {
     const output = [];
 
     db.forEach(({ exchanges, timestamp }) => {
-        const data = exchanges[exchange]
+        const data = exchanges[exchange];
 
         if (data) {
             output.push({
