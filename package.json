@@ -4,7 +4,7 @@
   "description": "A proof-of-concept digital currency exchange app",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/babel-cli/bin/babel-node.js ./node_modules/webpack/bin/webpack.js",
+    "build": "webpack --progress",
     "coverage": "coveralls < coverage/lcov.info",
     "lint": "eslint src",
     "start": "npm run build && nodemon private/server.js",
@@ -49,6 +49,7 @@
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "moment": "^2.17.1",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-addons-test-utils": "^15.4.2",
     "react-dom": "^15.4.2",
